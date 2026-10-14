@@ -1,0 +1,65 @@
+package com.mycompany.mavenproject2;
+//CREA UN VECTOR   QUE  ALMACENE 15 NUMEROS  Y QUE  DIGA  CUALES SON 
+// REPETIDOS Y LOS  ELIMINE
+import java.util.Scanner;
+
+public class Mavenproject2 {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        int[] numeros = new int[15];
+
+        // 1. Cargar los 15 numeros
+        for (int i = 0; i < 15; i++) {
+            System.out.print("Ingrese el numero " + (i + 1) + ": ");
+            numeros[i] = teclado.nextInt();
+        }
+
+        // 2. Mostrar los numeros repetidos
+        System.out.println("\nNumeros repetidos:");
+
+        for (int i = 0; i < 15; i++) {
+            boolean repetido = false;
+
+            for (int j = 0; j < i; j++) {
+                if (numeros[i] == numeros[j]) {
+                    repetido = true;
+                    break;
+                }
+            }
+
+            if (repetido) {
+                System.out.println(numeros[i]);
+            }
+        }
+
+        // 3. Eliminar los numeros repetidos
+        int cantidad = 0;
+
+        for (int i = 0; i < 15; i++) {
+            boolean repetido = false;
+
+            for (int j = 0; j < cantidad; j++) {
+                if (numeros[i] == numeros[j]) {
+                    repetido = true;
+                    break;
+                }
+            }
+
+            if (!repetido) {
+                numeros[cantidad] = numeros[i];
+                cantidad++;
+            }
+        }
+
+        // 4. Mostrar el vector sin repetidos
+        System.out.println("\nVector sin numeros repetidos:");
+
+        for (int i = 0; i < cantidad; i++) {
+            System.out.println(numeros[i]);
+        }
+
+        teclado.close();
+    }
+}

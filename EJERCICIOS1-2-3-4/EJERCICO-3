@@ -1,0 +1,46 @@
+vector pares e impares
+
+import java.util.Scanner;
+
+class retroalimentacion {
+    private Scanner teclado;
+    private int[] pares;
+    private int[] impares;
+
+    public void cargar() {
+        teclado =new Scanner(System.in);
+        pares =new int[10];
+        impares =new int[10];
+
+        int numerospares =0;
+        int numerosimpares =0;
+
+        for (int contador = 0; contador < 10; contador=contador+1) {
+            System.out.print("dame un numero:");
+            int numero = teclado.nextInt();
+
+            if (numero%2 == 0) {
+                pares[numerospares] = numero;
+                numerospares=numerospares+1;
+            } else {
+                impares[numerosimpares] = numero;
+                numerosimpares=numerosimpares+1;
+            }
+        }
+
+        System.out.println("numeros pares:");
+        for (int contador = 0; contador < numerospares; contador=contador+1) {
+            System.out.println(pares[contador]);
+        }
+
+        System.out.println("numeros impares:");
+        for (int contador = 0; contador < numerosimpares; contador=contador+1) {
+            System.out.println(impares[contador]);
+        }
+    }
+
+    public static void main(String[] ar) {
+        retroalimentacion usuario =new retroalimentacion();
+        usuario.cargar();
+    }
+}

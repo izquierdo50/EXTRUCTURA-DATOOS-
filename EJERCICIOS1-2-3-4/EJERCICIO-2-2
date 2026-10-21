@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class PruebaVector10 {
+    private Scanner teclado;
+    private int[] vec;
+
+    public void cargar() {
+        teclado=new Scanner(System.in);
+        vec=new int[10];
+        for(int f=0;f<vec.length;f++) {
+            System.out.print("Ingrese un número:");
+            vec[f]=teclado.nextInt();
+        }
+    }
+
+    public void ordenar() {
+        int aux;
+        for(int k=0;k<vec.length-1;k++) {
+            for(int f=0;f<vec.length-1-k;f++) {
+                if(vec[f]>vec[f+1]) {
+                    aux=vec[f];
+                    vec[f]=vec[f+1];
+                    vec[f+1]=aux;
+                }
+            }
+        }
+    }
+
+    public void mostrar() {
+        for(int f=0;f<vec.length;f++) {
+            System.out.print(vec[f]+" ");
+        }
+    }
+
+    public static void main(String[] ar) {
+        PruebaVector10 pv=new PruebaVector10();
+        pv.cargar();
+        pv.ordenar();
+        pv.mostrar();
+    }
+}
